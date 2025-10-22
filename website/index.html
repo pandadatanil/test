@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Acme — Modern Starter</title>
+  <meta name="description" content="A modern, fast, responsive website starter with dark mode." />
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <script>
+    // Set initial theme early to avoid flashes
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = stored || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <img src="assets/logo.svg" alt="" class="logo" width="32" height="32" aria-hidden="true" />
+        <span class="brand-name">Acme</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="sr-only">Toggle navigation</span>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <ul id="primary-menu" class="nav-list">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <mask id="moon-mask"><rect x="0" y="0" width="24" height="24" fill="white"/><circle cx="14" cy="10" r="6" fill="black"/></mask>
+          <circle cx="12" cy="12" r="6" fill="currentColor" mask="url(#moon-mask)" />
+          <g class="sun-rays"><path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="container">
+        <h1>Build something great.</h1>
+        <p class="lead">A clean, accessible, responsive starter with dark mode built-in.</p>
+        <div class="actions">
+          <a href="#features" class="btn btn-primary">Explore features</a>
+          <a href="#contact" class="btn">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-bg" aria-hidden="true"></div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2>Features</h2>
+        <div class="grid features-grid">
+          <article class="card">
+            <div class="card-icon">⚡</div>
+            <h3>Fast</h3>
+            <p>Lightweight HTML, modern CSS, and vanilla JS keep it snappy.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">🎯</div>
+            <h3>Accessible</h3>
+            <p>Semantic markup, proper contrast, and keyboard-friendly interactions.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">🌓</div>
+            <h3>Dark mode</h3>
+            <p>Respects system preference with a persistent toggle.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">📱</div>
+            <h3>Responsive</h3>
+            <p>Adaptive layout that looks great on any device.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section alt">
+      <div class="container about-grid">
+        <div>
+          <h2>About this starter</h2>
+          <p>This is a minimal, production-ready static site boilerplate. Tweak the styles, swap the content, and deploy anywhere.</p>
+          <ul class="checklist">
+            <li>Modern CSS variables and color-schemes</li>
+            <li>Zero dependencies by default</li>
+            <li>Clean, maintainable structure</li>
+          </ul>
+        </div>
+        <div class="about-visual">
+          <img src="assets/logo.svg" alt="Acme logo" width="160" height="160" />
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>Have questions or want help customizing? Reach out.</p>
+        <form class="contact-form" action="mailto:hello@example.com" method="post" enctype="text/plain">
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input id="name" name="Name" type="text" required autocomplete="name" />
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="Email" type="email" required autocomplete="email" />
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="Message" rows="4" required></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Acme. All rights reserved.</p>
+      <a href="#home" class="back-to-top">Back to top ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
