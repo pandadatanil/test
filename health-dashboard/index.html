@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>个人健康管理 Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>我的健康管理 Dashboard</h1>
+      <p id="today"></p>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>今日概览</h2>
+        <div class="metrics">
+          <div class="metric">
+            <span>步数</span>
+            <strong id="stepsValue">0</strong>
+          </div>
+          <div class="metric">
+            <span>饮水 (ml)</span>
+            <strong id="waterValue">0</strong>
+          </div>
+          <div class="metric">
+            <span>睡眠 (小时)</span>
+            <strong id="sleepValue">0</strong>
+          </div>
+          <div class="metric">
+            <span>体重 (kg)</span>
+            <strong id="weightValue">0</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>快速记录</h2>
+        <form id="healthForm">
+          <label>步数<input type="number" id="steps" min="0" required /></label>
+          <label>饮水 (ml)<input type="number" id="water" min="0" required /></label>
+          <label>睡眠 (小时)
+            <input type="number" id="sleep" min="0" step="0.1" required />
+          </label>
+          <label>体重 (kg)
+            <input type="number" id="weight" min="0" step="0.1" required />
+          </label>
+          <button type="submit">保存今日记录</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>目标完成度</h2>
+        <ul class="goals" id="goalsList"></ul>
+      </section>
+
+      <section class="card">
+        <h2>最近 7 天记录</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>日期</th><th>步数</th><th>饮水</th><th>睡眠</th><th>体重</th></tr>
+            </thead>
+            <tbody id="historyBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
